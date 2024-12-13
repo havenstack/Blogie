@@ -7,7 +7,7 @@
 - User authentication (registration, login, logout)
 - Create, read, update, and delete (CRUD) operations for blog posts
 - Responsive design for a seamless experience across devices
-- RESTful architecture for future API integration
+- RESTful architecture for future API integration **[Comming soon]**
 
 ## Prerequisites
 
