@@ -32,7 +32,7 @@
 
 @include('blog.components.navigation')
 
-@if(request()->routeIs('blog.index'))
+@if(request()->routeIs('blog.index') || request()->routeIs('blog.all'))
     @include('blog.components.categories')
 @elseif(request()->routeIs('blog.post'))
     @include('blog.components.post-header')
@@ -45,7 +45,7 @@
         <div class="row">
             @yield('content')
 
-            @if(request()->routeIs('blog.index') || request()->routeIs('blog.post'))
+            @if(request()->routeIs('blog.index') || request()->routeIs('blog.all') || request()->routeIs('blog.post'))
                 @include('blog.components.sidebar')
             @endif
         </div>

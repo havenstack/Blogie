@@ -7,16 +7,21 @@ use App\Models\User;
 
 class BlogController extends Controller
 {
-    public function index(bool $all = false)
+    public function index()
     {
         $posts = Post::latest()
-            ->with('author');
+            ->with('author')
+            ->limit(1)
+            ->get();
 
-        if (!$all) {
-            $posts->limit(1);
-        }
+        return view('blog.index', compact('posts'));
+    }
 
-        $posts = $posts->get();
+    public function all()
+    {
+        $posts = Post::latest()
+            ->with('author')
+            ->get();
 
         return view('blog.index', compact('posts'));
     }

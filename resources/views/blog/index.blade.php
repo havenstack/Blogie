@@ -43,11 +43,14 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="col-lg-12">
-                    <div class="main-button">
-                        <a href="{{ route('blog.index', ['all' => true]) }}">View All Posts</a>
+
+                @if(request()->routeIs('blog.index'))
+                    <div class="col-lg-12">
+                        <div class="main-button">
+                            <a href="{{ route('blog.all') }}">View All Posts</a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

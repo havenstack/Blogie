@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
    | Frontend Routes
    |--------------------------------------------------------------------------
 */
-Route::get('/{all?}', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog', [BlogController::class, 'all'])->name('blog.all');
 Route::get('blog/post/{post}', [BlogController::class, 'post'])->name('blog.post');
 Route::get('blog/contact', [BlogController::class, 'contact'])->name('blog.contact');
 
