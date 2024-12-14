@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('New blog post') }}
+            {{ __('Edit blog post') }}
         </h2>
     </x-slot>
 
@@ -22,6 +22,11 @@
                             <x-input-error class="mt-2" :messages="$errors->get('title')" />
                         </div>
 
+                        <div>
+                            <x-input-label for="category_id" :value="__('Category')" />
+                            <x-select name="state" :options="$categories" :name="'category_id'" :defaultValue="$post->category_id"/>
+                            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                        </div>
 
                         <div>
                             <div id="editor">

@@ -14,6 +14,30 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog.contact') }}">Contact Us</a>
                     </li>
+                    @auth
+                        <a
+                            href="{{ url('/dashboard') }}"
+                            class="nav-link"
+                        >
+                            Administration
+                        </a>
+                    @else
+                        <a
+                            href="{{ route('login') }}"
+                            class="nav-link"
+                        >
+                            Log in
+                        </a>
+
+                        @if (Route::has('register'))
+                            <a
+                                href="{{ route('register') }}"
+                                class="nav-link"
+                            >
+                                Register
+                            </a>
+                        @endif
+                    @endauth
                 </ul>
             </div>
         </div>

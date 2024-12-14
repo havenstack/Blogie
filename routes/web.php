@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::patch('/posts', [PostController::class, 'update'])->name('posts.update');
     Route::delete('posts/delete', [PostController::class, 'delete'])->name('posts.delete');
+
+    // Category CRUD
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::patch('/categories', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('categories/delete', [CategoryController::class, 'delete'])->name('categories.delete');
 });
 
 /*

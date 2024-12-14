@@ -11,7 +11,7 @@ class BlogController extends Controller
     {
         $posts = Post::latest()
             ->with('author')
-            ->limit(1)
+            ->limit(3)
             ->get();
 
         return view('blog.index', compact('posts'));

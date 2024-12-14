@@ -20,6 +20,12 @@
                         </div>
 
                         <div>
+                            <x-input-label for="category_id" :value="__('Category')" />
+                            <x-select name="state" :options="$categories" :name="'category_id'"/>
+                            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                        </div>
+
+                        <div>
                             <div id="editor">
                                 {!! old('content', '') !!}
                             </div>
