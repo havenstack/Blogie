@@ -16,4 +16,12 @@ class Post extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    /**
+     * Get the category associated with the post.
+     */
+    public function category(): HasOne
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }

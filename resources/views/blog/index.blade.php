@@ -8,10 +8,10 @@
                     <div class="col-lg-12">
                         <div class="blog-post">
                             <div class="blog-thumb">
-                                <img src="{{ asset('images/blog-post-01.jpg') }}" alt="">
+                                <img src="{{ asset('images/blog-post-0' . rand(1, 3) .'.jpg') }}" alt="">
                             </div>
                             <div class="down-content">
-                                <span>Lifestyle</span>
+                                <span>{{ $post->category->name }}</span>
                                 <a href="{{ route('blog.post', $post) }}"><h4>{{ $post->title }}</h4></a>
                                 <ul class="post-info">
                                     <li><a href="#">{{ $post->author->name }}</a></li>
