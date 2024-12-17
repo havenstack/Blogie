@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\API\v1\PostsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +25,7 @@ Route::get('blog/contact', [BlogController::class, 'contact'])->name('blog.conta
    |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     // Dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -33,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile/token', [ProfileController::class, 'createToken'])->name('profile.token.create');
 
     // Post CRUD
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
@@ -49,6 +52,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::patch('/categories', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories/delete', [CategoryController::class, 'delete'])->name('categories.delete');
+
+    // API Routes
+    Route::group(['prefix' => '/api/v1'], function () {
+        Route::get('/posts', [PostsController::class, 'index'])->name('api.posts.index');
+        Route::get('/posts/{id}', [PostsController::class, 'show'])->name('api.posts.show');
+    });
 });
 
 /*

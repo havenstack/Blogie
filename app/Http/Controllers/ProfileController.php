@@ -57,4 +57,21 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function createToken(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+
+        $token = $request->user()->createToken(
+            $request->user()->email,
+            ['*'],
+            now()->addHour()
+        );
+        $plainToken = $token->plainTextToken;
+
+        return Redirect::route('profile.edit')
+            ->with('successLong', 'API token generated successfully!')
+            ->with('successContent', 'New token: ' . $plainToken);
+    }
 }
