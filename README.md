@@ -80,7 +80,7 @@ npm run dev
 
 The application will be available at [http://localhost](http://localhost).
 
-### 7. Access the Application API
+### 8. Access the Application API
 
 The application API will be available at [http://localhost/api/v1/](http://localhost/api/v1/).
 For authentication you need Bearer token. You can generate one in your user's profile section [http://localhost/profile](http://localhost/profile). 
