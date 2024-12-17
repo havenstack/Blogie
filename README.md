@@ -7,7 +7,7 @@
 - User authentication (registration, login, logout)
 - Create, read, update, and delete (CRUD) operations for blog posts
 - Responsive design for a seamless experience across devices
-- RESTful architecture for future API integration **[Comming soon]**
+- RESTful architecture for future API integration
 
 ## Prerequisites
 
@@ -79,6 +79,11 @@ npm run dev
 ### 7. Access the Application
 
 The application will be available at [http://localhost](http://localhost).
+
+### 7. Access the Application API
+
+The application API will be available at [http://localhost/api/v1/](http://localhost/api/v1/).
+For authentication you need Bearer token. You can generate one in your user's profile section [http://localhost/profile](http://localhost/profile). 
 
 ## Additional Commands
 
