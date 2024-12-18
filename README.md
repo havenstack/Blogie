@@ -83,7 +83,44 @@ The application will be available at [http://localhost](http://localhost).
 ### 8. Access the Application API
 
 The application API will be available at [http://localhost/api/v1/](http://localhost/api/v1/).
-For authentication you need Bearer token. You can generate one in your user's profile section [http://localhost/profile](http://localhost/profile). 
+For authentication you need Bearer token. You can generate one in your user's profile section [http://localhost/profile](http://localhost/profile).
+
+------------------------------------------------------------------------------------------
+
+#### Listing existing posts as JSON
+
+<details>
+ <summary><code>GET</code> <code><b>localhost/api/v1//posts</b></code> <code>(gets all users posts)</code></summary>
+
+##### Parameters
+
+> None
+
+##### Responses
+
+> | http code     | content-type              | response |
+> |---------------|---------------------------|----------|
+> | `200`         | `application/json`        | JSON     |
+
+
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>localhost/api/v1//posts/{post_id}</b></code> <code>(gets post by its unique ID {post_id})</code></summary>
+
+##### Parameters
+
+> | name         |  type     | data type | description               |
+> |--------------|-----------|-----------|---------------------------|
+> | `post_id`    |  required | int       | The unique post id        |
+
+##### Responses
+
+> | http code     | content-type              | response                                                            |
+> |---------------|---------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | JSON                                                         |
+
+</details>
 
 ## Additional Commands
 
